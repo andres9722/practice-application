@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import loadTasks from './components/Request/Request'
+import { TodoListProvider } from './providers/TodoListProvider.jsx'
+import TodoForm from './components/TodoForm/TodoForm.jsx'
+import TodoList from './components/TodoList/TodoList.jsx'
 import './index.scss'
 
 export default class App extends Component {
@@ -7,10 +9,14 @@ export default class App extends Component {
     super(props)
 
     this.state = {}
-    loadTasks().then(tasks => console.log(tasks))
   }
 
   render () {
-    return <div>Hello moto</div>
+    return (
+      <TodoListProvider>
+        <TodoForm />
+        <TodoList />
+      </TodoListProvider>
+    )
   }
 }
