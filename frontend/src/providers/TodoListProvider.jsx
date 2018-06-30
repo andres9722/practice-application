@@ -30,7 +30,7 @@ export class TodoListProvider extends Component {
       isComplete
     }
 
-    if (text && isComplete) {
+    if (text) {
       addTask(task).then(task => console.log(task))
       loadTasks().then(tasks => this.setState({todoList: tasks}))
     }
