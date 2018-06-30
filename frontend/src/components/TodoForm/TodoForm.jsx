@@ -1,21 +1,22 @@
-import React, { Component } from 'react'
+import React, { Fragment } from 'react'
 import { TodoListConsumer } from '../../providers/TodoListProvider.jsx'
+import './TodoForm.scss'
 
-export default class TodoForm extends Component {
-  render () {
-    return (
-      <TodoListConsumer>
-        {({handleOnAddTodo}) => {
-          return (
-            <form onSubmit={e => handleOnAddTodo(e)} >
-              <h2>Add task</h2>
-              <input type='checkbox' name='isComplete' defaultChecked />
-              <input type='text' name='text' />
-              <input type='submit' value='Submit' />
-            </form>
-          )
-        }}
-      </TodoListConsumer>
-    )
-  }
-}
+const TodoForm = () => (
+  <TodoListConsumer>
+    {({handleOnAddTodo}) => {
+      return (
+        <Fragment>
+          <h2 className='title'>Add task</h2>
+          <form onSubmit={e => handleOnAddTodo(e)} className='form' >
+            <input className='form__checkbox' type='checkbox' name='isComplete' />
+            <input className='form__input' type='text' placeholder='Text' name='text' />
+            <input className='form__submit' type='submit' value='Submit' />
+          </form>
+        </Fragment>
+      )
+    }}
+  </TodoListConsumer>
+)
+
+export default TodoForm

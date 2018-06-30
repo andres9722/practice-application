@@ -2,3 +2,8 @@
 @import "./components/Shared/variables.scss";
 @import "./components/Shared/base.scss";
 @import "./components/Shared/mixins.scss";
+
+.container {
+  padding: 16px;
+  text-align: center;
+}

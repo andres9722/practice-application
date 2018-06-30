@@ -1,0 +1,45 @@
+@import "../../index.scss";
+
+.title {
+  text-transform: uppercase;
+  color: color(secondary-color);
+}
+
+.form {
+  border: 2px solid color(secondary-color);
+  padding: 16px;
+  margin-top: 16px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 50% 40%;
+
+  @include from($large) {
+    grid-template-columns: 5% 80% 15%;
+  }
+
+  &__checkbox {
+    align-self: center;
+    justify-self: center;
+    border: 2px solid red;
+    margin: 0;
+  }
+
+  &__input {
+    font-family: $font-title;
+    color: color(font-color);
+    padding: 8px;
+    border: 2px solid color(border-color);
+    letter-spacing: .5px;
+    outline-color: darken(color(border-color), 20);
+  }
+
+  &__submit {
+    border: 2px solid rgba(color(secondary-color), .7);
+    font-family: $font-text;
+    text-transform: uppercase;
+    background: transparent;
+    color: color(font-color);
+    letter-spacing: 8px;
+    font-weight: 700;
+  }
+}
