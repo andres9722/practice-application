@@ -1,5 +1,5 @@
 import React, { createContext, Component } from 'react'
-import { loadTasks, addTask, deleteTask, updateTask } from '../components/Request/Request'
+import { loadTasks, addTask, deleteTask, updateTask } from '../Request/Request'
 
 const { Provider, Consumer } = createContext({
   todoList: []

@@ -1,0 +1,54 @@
+@import "../../index.scss";
+
+.nav {
+  background: color(secondary-color);
+  padding: 8px;
+
+  @include from($medium) {
+    padding: 32px;
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50px);
+
+    @include from($medium) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__item {
+      align-self: center;
+      justify-self: center;
+
+      &:last-child {
+        background: rgba(color(principal-color), .5);
+        border: 2px solid color(white);
+
+        @include from($medium) {
+          margin-left: 32px;
+        }
+      }
+    }
+
+    &__link {
+      color: color(white);
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 0;
+      margin: 0 4px;
+      
+      @include from($medium) {
+        padding: 16px 0;
+        margin: 0 32px;
+        letter-spacing: 5px;
+      }
+
+      &--active {
+        border-bottom: 2px solid color(white);
+      }
+    }
+  }
+}

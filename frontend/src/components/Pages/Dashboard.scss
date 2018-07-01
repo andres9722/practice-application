@@ -1,0 +1,33 @@
+@import "../../index.scss";
+
+.dashboard {
+  margin-top: 16px;
+  height: calc(100vh - 110px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: url("./../../assets/atom.svg");
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    z-index: -1;
+    opacity: .1;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    
+  }
+
+  &__name {
+    font-size: 50px;
+    letter-spacing: 8px;
+    margin: 8px;
+    border-bottom: 2px solid color(secondary-color);
+  }
+}

@@ -50,8 +50,6 @@ export const addTask = async ({text, isComplete}) => {
 }
 
 export const deleteTask = async (_id) => {
-  console.log('id', _id)
-
   const query = `
     mutation {
       deleteTask (_id: "${_id}") {
@@ -68,9 +66,6 @@ export const deleteTask = async (_id) => {
 }
 
 export const updateTask = async (_id, isComplete) => {
-  console.log('id', _id)
-  console.log('iscomplete', isComplete)
-
   const query = `
     mutation {
       updateTask(_id: "${_id}", isComplete: ${isComplete}) {

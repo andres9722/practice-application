@@ -3,7 +3,9 @@ import { ref } from '../config/Config'
 import firebase from 'firebase'
 
 const { Provider, Consumer } = createContext({
-  todoList: []
+  authed: [],
+  loading: [],
+  userName: ''
 })
 
 export class AuthProvider extends Component {
@@ -12,7 +14,8 @@ export class AuthProvider extends Component {
 
     this.state = {
       authed: false,
-      loading: true
+      loading: true,
+      username: ''
     }
 
     this.saveUser = this.saveUser.bind(this)
@@ -26,7 +29,8 @@ export class AuthProvider extends Component {
       if (user) {
         this.setState({
           authed: true,
-          loading: false
+          loading: false,
+          username: user.displayName.split(' ')[0]
         })
       } else {
         this.setState({

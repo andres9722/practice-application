@@ -13,13 +13,13 @@
   }
 
   &__item {
-    width: 50%;
     display: grid;
     grid-template-columns: 10% 50% 40%;
     margin: 0 auto;
     margin-bottom: 16px;
-
+    
     @include from($large) {
+      width: 50%;
       grid-template-columns: 5% 70% 25%;
     }
   }
