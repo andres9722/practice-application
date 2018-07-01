@@ -20,7 +20,7 @@ const typeDefs = `
 
   type Mutation {
     createTask(input: TaskInput) : Task
-    updateTask(_id: ID!, input: TaskInput) : Task
+    updateTask(_id: ID!, isComplete: Boolean) : Task
     deleteTask(_id: ID!) : Task
   }
 `

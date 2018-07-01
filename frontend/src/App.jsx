@@ -1,26 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import AppRoutes from './components/Utils/Routes.jsx'
 import { TodoListProvider } from './providers/TodoListProvider.jsx'
-import TodoForm from './components/TodoForm/TodoForm.jsx'
-import TodoList from './components/TodoList/TodoList.jsx'
-import Header from './components/Header/Header.jsx'
+import { AuthProvider, AuthConsumer } from './providers/AuthProvider.jsx'
+
 import './index.scss'
 
-export default class App extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {}
-  }
-
-  render () {
-    return (
+const App = () => (
+  <Router>
+    <AuthProvider>
       <TodoListProvider>
-        <div className='container l-container'>
-          <Header />
-          <TodoForm />
-          <TodoList />
-        </div>
+        <AuthConsumer>
+          {({state}) => (
+            state.loading === true
+            ? <div>Cargando...</div>
+            : (<main>
+              <AppRoutes />
+            </main>)
+          )}
+        </AuthConsumer>
       </TodoListProvider>
-    )
-  }
-}
+    </AuthProvider>
+  </Router>
+)
+
+export default App

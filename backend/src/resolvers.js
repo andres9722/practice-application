@@ -16,8 +16,8 @@ export const resolvers = {
       const task = await Task.create(input)
       return task
     },
-    async updateTask (root, {_id, input}) {
-      const task = await Task.findOneAndUpdate({_id}, input, {new: true})
+    async updateTask (root, {_id, isComplete}) {
+      const task = await Task.findOneAndUpdate({_id}, {isComplete}, {new: true})
       return task
     },
     async deleteTask (root, {_id}) {
