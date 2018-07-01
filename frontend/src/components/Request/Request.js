@@ -66,3 +66,21 @@ export const deleteTask = async (_id) => {
 
   return data
 }
+
+export const updateTask = async (_id, isComplete) => {
+  console.log('id', _id)
+  console.log('iscomplete', isComplete)
+
+  const query = `
+    mutation {
+      updateTask(_id: "${_id}", isComplete: ${isComplete}) {
+        text
+        isComplete
+      }
+    }
+  `
+
+  const data = await graphqlRequest(query)
+
+  return data
+}

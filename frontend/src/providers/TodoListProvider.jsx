@@ -1,5 +1,5 @@
 import React, { createContext, Component } from 'react'
-import { loadTasks, addTask, deleteTask } from '../components/Request/Request'
+import { loadTasks, addTask, deleteTask, updateTask } from '../components/Request/Request'
 
 const { Provider, Consumer } = createContext({
   todoList: []
@@ -15,7 +15,12 @@ export class TodoListProvider extends Component {
 
     this.handleOnAddTodo = this.handleOnAddTodo.bind(this)
     this.handleOnRemoveTodo = this.handleOnRemoveTodo.bind(this)
+    this.handleOnUpdateTodo = this.handleOnUpdateTodo.bind(this)
 
+    this.loadTasks()
+  }
+
+  loadTasks () {
     loadTasks().then(tasks => this.setState({todoList: tasks}))
   }
 
@@ -32,7 +37,7 @@ export class TodoListProvider extends Component {
 
     if (text) {
       addTask(task).then(task => console.log(task))
-      loadTasks().then(tasks => this.setState({todoList: tasks}))
+      this.loadTasks()
     }
 
     e.target.reset()
@@ -40,12 +45,20 @@ export class TodoListProvider extends Component {
 
   handleOnRemoveTodo (_id) {
     deleteTask(_id).then(task => console.log(task))
-    loadTasks().then(tasks => this.setState({todoList: tasks}))
+    this.loadTasks()
+  }
+
+  handleOnUpdateTodo (_id, e) {
+    updateTask(_id, e.target.checked).then(task => console.log(task))
+    this.loadTasks()
   }
 
   render () {
     return (
-      <Provider value={{state: this.state, handleOnAddTodo: this.handleOnAddTodo, handleOnRemoveTodo: this.handleOnRemoveTodo}} >
+      <Provider value={{state: this.state,
+        handleOnAddTodo: this.handleOnAddTodo,
+        handleOnRemoveTodo: this.handleOnRemoveTodo,
+        handleOnUpdateTodo: this.handleOnUpdateTodo }} >
         {this.props.children}
       </Provider>
     )

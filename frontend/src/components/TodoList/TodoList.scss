@@ -1,0 +1,50 @@
+@import "../../index.scss";
+
+.todo {
+  margin-top: 32px;
+
+  &__title {
+    color: color(principal-color);
+    text-transform: uppercase;
+  }
+
+  &__list {
+    padding: 16px;
+  }
+
+  &__item {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 10% 50% 40%;
+    margin: 0 auto;
+    margin-bottom: 16px;
+
+    @include from($large) {
+      grid-template-columns: 5% 70% 25%;
+    }
+  }
+
+  &__input {
+    align-self: center;
+    margin: 0;
+  }
+
+  &__text {
+    font-family: $font-title;
+    color: color(font-color);
+    padding: 8px;
+    letter-spacing: .5px;
+    justify-self: start;
+  }
+
+  &__remove {
+    border: 2px solid rgba(color(secondary-color), .7);
+    font-family: $font-text;
+    text-transform: uppercase;
+    background: transparent;
+    color: color(font-color);
+    letter-spacing: 8px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
