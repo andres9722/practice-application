@@ -16,7 +16,15 @@ const App = () => (
           <AuthConsumer>
             {({state}) => (
               state.loading === true
-              ? <div>Cargando...</div>
+              ? (
+                <div className='loading'>
+                  <h1>Loading...</h1>
+                  <div className='spinner'>
+                    <div className='double-bounce1' />
+                    <div className='double-bounce2' />
+                  </div>
+                </div>
+              )
               : (<main>
                 {
                   state.authed === true
