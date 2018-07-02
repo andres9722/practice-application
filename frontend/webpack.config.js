@@ -61,7 +61,7 @@ module.exports = {
     ]),
     new HtmlWebpackPlugin({
       template: path.join(srcDir, 'index.html'),
-      title: 'TODOLIST'
+      title: 'Application'
     })
   ]
 }
