@@ -1,0 +1,65 @@
+@import "../../index.scss";
+
+.youtube {
+  padding: 16px;
+  
+  @include from($large) {
+    padding: 16px 0;
+  }
+
+  &__input {
+    font-family: $font-title;
+    color: color(font-color);
+    padding: 8px;
+    border: 2px solid color(border-color);
+    letter-spacing: .5px;
+    outline-color: darken(color(border-color), 20);
+  }
+
+  &__container {
+    margin-top: 32px;
+
+    @include from($large) {
+      display: grid;
+      grid-template-columns: 65% 35%;
+    }
+  }
+  
+  &__frame {
+    width: 100%;
+    height: 250px;
+
+    @include from($large) {
+      width: 100%;
+      height: 420px;
+    }
+  }
+
+  &__title {
+    padding: 4px 0;
+    border-bottom: 2px solid color(border-color);
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    padding: 0 32px;
+  }
+
+  &__item {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 2px solid color(border-color);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+}
