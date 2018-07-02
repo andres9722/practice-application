@@ -14,7 +14,7 @@ const TodoList = () => (
                 <li key={todo._id} className='todo__item'>
                   <input className='todo__input' type='checkbox' defaultChecked={todo.isComplete} onChange={e => handleOnUpdateTodo(todo._id, e)} />
                   <span className='todo__text'>{todo.text}</span>
-                  <button className='todo__remove' onClick={() => handleOnRemoveTodo(todo._id)} >Borrar</button>
+                  <button className='todo__remove' onClick={() => handleOnRemoveTodo(todo._id)} >Remove</button>
                 </li>
               ))
             }
